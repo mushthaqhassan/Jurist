@@ -1,0 +1,633 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Jurist | The Git solution for professional teams</title>
+    <link rel="stylesheet" href="{% static 'css/style.css'%}" type="text/css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon.svg'%}" />
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <style>
+        #banner {
+            width: 100%;
+            padding: 40px;
+            background-color: #F5F7F8;
+        }
+
+        #banner .content {
+            background: #42526e;
+            width: 56%;
+            margin: 0 auto;
+            border-radius: 15px 50px;
+        }
+
+        #highlights section.item div.contant_box {
+            width: 43%;
+            padding-top: 133px;
+        }
+
+        #banner div.content h3 {
+            font-size: 46px;
+            text-align: center;
+            font-weight: 600;
+            margin-bottom: 34px;
+            margin-top: 20px;
+            color: #fff;
+        }
+
+        #banner div.content a {
+            display: inline-block;
+            font-size: 16px;
+            color: #fff;
+            padding: 14px 20px;
+            background-color: #47A992;
+            border: 1px solid #47A992;
+            border-radius: 4px;
+            font-weight: 600;
+            margin-left: 240px;
+            margin-bottom: 20px;
+        }
+
+        #connect .contant-box .right .content p {
+            color: #f5f6f773;
+            width: 90%;
+            font-size: 17px;
+            font-weight: 400;
+            padding-top: 8px;
+        }
+
+        #connect .contant-box .right .content .items .item p {
+            width: 89%;
+            padding-top: 5px;
+            color: #f5f6f773;
+        }
+
+        #connect .contant-box .right .content p {
+            color: #14324c;
+            width: 90%;
+            font-size: 17px;
+            font-weight: 400;
+            padding-top: 8px;
+        }
+        #connect .contant-box .right .content p {
+            color: #fff;
+            width: 90%;
+            font-size: 17px;
+            font-weight: 400;
+            padding-top: 8px;
+        }
+        #banner div.content a {
+    display: inline-block;
+    font-size: 16px;
+    color: #fff;
+    padding: 14px 20px;
+    background-color: #47A992;
+    border: 1px solid #47A992;
+    border-radius: 4px;
+    font-weight: 600;
+    margin-left: 314px;
+    margin-bottom: 20px;
+}
+
+
+    </style>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:image" content="" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+</head>
+
+<body>
+    <!-- <my-header></my-header> -->
+    <header class="header">
+        <div class="wrapper">
+
+            <nav class="navbar">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="{% static 'images/logo.png'%}" alt="Logo" />
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="{%  url 'home' %}" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">About</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a href="{%  url 'booking' %}" class="nav-link">Find Lawyer</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a href="{%  url 'login' %}" class="nav-link">Find Lawyer</a>
+                    </li>
+                    {% endif %}
+                    <li class="nav-item">
+                        <a href="{%  url 'contact' %}" class="nav-link">Contact</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a href="logout" class="a-submit">Logout</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a href="login" class="a-submit">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="signup" class="submit">Sign Up</a>
+                    </li>
+                    {% endif %}
+                </ul>
+                <!-- <div class="hamburger">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div> -->
+            </nav>
+        </div>
+    </header>
+    <!-- < Header > -->
+    <section id="spotlight">
+        <section class="wrapper">
+            <div class="countainer">
+                <div class="top">
+                    <h2 class="head1">Unbelievable <span style="color: #14324c; font-weight: 500;">Solutions </span>For
+                        All Legal Cases.</h2>
+                    <div class="underline">
+                        <img src="{% static './images/pngwing.com.png'%}" alt="">
+                    </div>
+
+                    <p> We specialise in all aspects of law and Support Business Throug periods expansion succesion</p>
+                </div>
+                <div class="top-right">
+                    <div class="m-image">
+                        <img src="{% static './images/spotlight.svg'%}" alt="Image">
+                    </div>
+                    <div class="middle">
+                        <div class="left">
+                            <form action="">
+                                <input type="email" placeholder="Enter your e-mail" />
+                            </form>
+                        </div>
+                        {% if user.is_authenticated %}
+                        <div class="right">
+                            <a href="booking" class="butten">Talk to a Lawyer</a>
+                        </div>
+                        {% else %}
+                        <div class="right">
+                            <a href="login" class="butten">Talk to a Lawyer</a>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="right"></div>
+        </section>
+
+    </section>
+    <!-- spotlight -->
+    <section id="work">
+        <section class="wrapper">
+            <section class="top">
+                <h3>How it Works.</h3>
+                <p>Everything you need to know when you're looking to get legal advice ,Book lawyer,or Meet-all in one
+                    place</p>
+                <ul>
+                    <li>
+                        <div class="title">
+                            <h5>Search Lawyer</h5>
+                            <div class="simg">
+                                <img src="{% static './images/9004811_search_find_magnifier_zoom_icon.svg'%}" alt="">
+                            </div>
+                        </div>
+                        <div class="content">
+                            <p>Search Lawyer By putting your location and Legal Topic.Search Lawyer By putting your
+                                location and Legal Topic</p>
+                            <a href="" class="button">Get Started</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="title">
+                            <h5>Book Lawyer</h5>
+                            <div class="simg">
+                                <img src="{% static './images/6791598_calender_daedline_date_event_schedule_icon.svg'%}"
+                                    alt="">
+                            </div>
+                        </div>
+                        <div class="content">
+                            <p>Search Lawyer By putting your location and Legal Topic.Search Lawyer By putting your
+                                location and Legal Topic</p>
+                            <a href="" class="button">Get Started</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="title">
+                            <h5>Meet Lawyer</h5>
+                            <div class="simg">
+                                <img src="{% static './images/7857149_google_meet_hangouts_conference_video_icon.svg'%}"
+                                    alt="">
+                            </div>
+                        </div>
+                        <div class="content">
+                            <p>Search Lawyer By putting your location and Legal Topic.Search Lawyer By putting your
+                                location and Legal Topic</p>
+                            <a href="" class="button">Get Started</a>
+                        </div>
+                    </li>
+                </ul>
+                <div class="bottem">
+                    <p>
+                        <b>101+ users? </b>We offer discounts for large teams! <a href="">Calculate your price</a>
+                    </p>
+                </div>
+            </section>
+        </section>
+    </section>
+    <section class="curve">
+        <img src="{% static 'images/curve.svg'%}" alt="free" class="curve" />
+    </section>
+    <!-- ---- work------ -->
+    <section id="highlights">
+
+        <section class="wrapper">
+            <section class="item">
+                <div class="image_container">
+                    <img src="{% static 'images/img4.png'%}" alt="01" />
+                </div>
+                <div class="contant_box">
+                    <span class="label">
+                        JOIN AS LAWYER
+                    </span>
+                    <h3>Want to use your expertise ? </h3>
+                    <h4>Join as a Lawyer</h4>
+                    <p> Onlaw helps users to get connected with other lawyers,so that they can get a more legel help and
+                        personalized experience. </p>
+                    {% if user.is_authenticated %}
+                    <a href="lawyers" class="button1">Join as a Lawyer</a>
+                    <a href="lawyers" class="button2">Learn More</a>
+                    {% else %}
+                    <a href="lawlogin" class="button1">Join as a Lawyer</a>
+                    <a href="lawlogin" class="button2">Learn More</a>
+                    {% endif %}
+                </div>
+            </section>
+        </section>
+    </section>
+    <section class="curve2">
+        <img src="{% static 'images/curve.svg'%}" alt="free" class="curve" />
+
+    </section>
+    <!-- ---- highlights------ -->
+    <section id="service">
+        <section class="wrapper">
+            <div class="top">
+                <h2>Services</h2>
+                <h3>Our Practice Area</h3>
+            </div>
+            <div class="bottom">
+                <ul>
+                    <li>
+                        <span class="img"><img src="{% static ''%}images/Family.svg" alt="Family"></span>
+                        <h3>Family law</h3>
+                        <p>Family law encompasses legal matters like divorce, child custody, and spousal support,
+                            regulating relationships and resolving conflicts within familial structures.</p>
+                        <a href="" class="button">Learn More <div class="arrow"><img
+                                    src="{% static 'images/arrow-right.svg'%}" alt="Arrow"></div></a>
+                    </li>
+                    <li>
+                        <span class="img"><img src="{% static 'images/real-estate.svg'%}" alt="Real Estate"></span>
+                        <h3>Real Estate law</h3>
+                        <p>Real estate law involves legal aspects of property transactions, covering buying, selling,
+                            leasing, and addressing disputes between property owners and tenants.</p>
+                        <a href="" class="button">Learn More <div class="arrow"><img
+                                    src="{% static 'images/arrow-right.svg'%}" alt="Arrow"></div></a>
+                    </li>
+                    <li>
+                        <span class="img"><img src="{% static 'images/business.svg'%}" alt="Business"></span>
+                        <h3>Business law</h3>
+                        <p>Business law governs commercial transactions, and corporate operations, addressing legal
+                            aspects of business activities, from formation to dissolution.</p>
+                        <a href="" class="button">Learn More <div class="arrow"><img
+                                    src="{% static 'images/arrow-right.svg'%}" alt="Arrow"></div></a>
+                    </li>
+                    <li>
+                        <span class="img"><img src="{% static ''%}images/criminal.svg" alt="Criminal"></span>
+                        <h3>Criminal law</h3>
+                        <p>Criminal law defines and punishes offenses against the state, ensuring justice through legal
+                            procedures and penalties for unlawful actions.</p>
+                        <a href="" class="button">Learn More <div class="arrow"><img
+                                    src="{% static 'images/arrow-right.svg'%}" alt="Arrow"></div></a>
+                    </li>
+                    <li>
+                        <span class="img"><img src="{% static 'images/finance.svg'%}" alt="Finance"></span>
+                        <h3>Finance law</h3>
+                        <p>Finance law regulates financial transactions, institutions, and markets, ensuring compliance
+                            with laws that protect investors and maintain financial stability.</p>
+                        <a href="" class="button">Learn More <div class="arrow"><img
+                                    src="{% static 'images/arrow-right.svg'%}" alt="Arrow"></div></a>
+                    </li>
+                    <li>
+                        <span class="img"><img src="{% static 'images/divorce.svg'%}" alt="Divorce"></span>
+                        <h3>Divorce law</h3>
+                        <p>Divorce law governs legal dissolution of marriage, addressing issues like asset division,
+                            spousal support, and child custody through legal procedures.</p>
+                        <a href="" class="button">Learn More <div class="arrow"><img
+                                    src="{% static 'images/arrow-right.svg'%}" alt="Arrow"></div></a>
+                    </li>
+            </div>
+            </ul>
+        </section>
+    </section>
+    </section>
+    <section class="curve4">
+        <img src="{% static 'images/curve.svg'%}" alt="free" class="curve" />
+
+    </section>
+    <!-- ---- Service------ -->
+    <section id="about">
+        <section class="wrapper">
+            <div class="about-container">
+                <div class="left">
+                    <div class="content-box">
+                        <span class="label">ABOUT US</span>
+                        <h3>Navigating Legal Matters with Jurist</h3>
+                        <p>
+                            Expert Guidance: Seasoned legal professionals offering expert advice.Client-Centric
+                            Approach: Tailored solutions designed to meet your unique needs. Committed to Results: Our
+                            commitment is to achieve the best possible results for you.Committed to Results: Our
+                            commitment is to achieve the best possible results for you.</p>
+                        <a href="#" class="butten">Learn More</a>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="ma-image">
+                        <img src="{% static 'images/img1.png'%}" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+    </section>
+    <section class="curve3">
+        <img src="{% static 'images/curve.svg'%}" alt="free" class="curve" />
+    </section>
+    <!-- ---- about------ -->
+    <section id="cards">
+        <section class="wrapper">
+            <div class="left">
+                <div class="contant">
+                    <span class="label">TESTIMONIAL</span>
+                    <h3>What our Clients Say About As</h3>
+                    <p>simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+                        standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+                        scrambled it to make a type specimen book.</p>
+                    <a href="#" class="butten">Learn More</a>
+                </div>
+            </div>
+            <div class="outer">
+                <div class="card" style="--delay: -1;">
+                    <div class="header2">
+                        <div class="profile">
+                            <div class="img">
+                                <img src="https://images.unsplash.com/photo-1477118476589-bff2c5c4cfbb?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
+                                    alt="" />
+                            </div>
+                            <div class="details">
+                                <h4>Francis Goodman</h4>
+                                <p>zod@zud.kp</p>
+                            </div>
+                        </div>
+                        <div class="stars">
+                            <span class="op-star"></span>
+                            <span class="op-star"></span>
+                            <span class="op-star"></span>
+                            <span class="op-star"></span>
+                            <span class="op-star"></span>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <p>
+                            " I had a great experience using this lawyer booking website. They made the process so easy
+                            and convenient. Highly recommended! "
+                        </p>
+                    </div>
+                </div>
+                <div class="card" style="--delay: 0;">
+                    <div class="header2">
+                        <div class="profile">
+                            <div class="img">
+                                <img src="https://images.unsplash.com/photo-1512484776495-a09d92e87c3b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80"
+                                    alt="" />
+                            </div>
+                            <div class="details">
+                                <h4>Dorothy Padilla</h4>
+                                <p>ahbo@urimezeze.sa</p>
+                            </div>
+                        </div>
+                        <div class="stars">
+                            <span class="op-star"></span>
+                            <span class="op-star"></span>
+                            <span class="op-star"></span>
+                            <span class="op-star"></span>
+                            <span class="op-star"></span>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <p>
+                            " I had a great experience using this lawyer booking website. They made the process so easy
+                            and convenient. Highly recommended! "
+                        </p>
+                    </div>
+                </div>
+                <div class="card" style="--delay: 1;">
+                    <div class="header2">
+                        <div class="profile">
+                            <div class="img">
+                                <img src="https://images.unsplash.com/photo-1475823678248-624fc6f85785?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
+                                    alt="" />
+                            </div>
+                            <div class="details">
+                                <h4>Devin Davis</h4>
+                                <p>se@esuruebo.kw</p>
+                            </div>
+                        </div>
+                        <div class="stars">
+                            <span class="op-star"></span>
+                            <span class="op-star"></span>
+                            <span class="op-star"></span>
+                            <span class="op-star"></span>
+                            <span class="op-star"></span>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <p>
+                            " I had a great experience using this lawyer booking website. They made the process so easy
+                            and convenient. Highly recommended! "
+                        </p>
+                    </div>
+                </div>
+                <div class="card" style="--delay: 2;">
+                    <div class="header2">
+                        <div class="profile">
+                            <div class="img">
+                                <img src="https://images.unsplash.com/photo-1484588168347-9d835bb09939?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=334&q=80"
+                                    alt="" />
+                            </div>
+                            <div class="details">
+                                <h4>Charles Maxwell</h4>
+                                <p>rola@zog.ee</p>
+                            </div>
+                        </div>
+                        <div class="stars">
+                            <span class="op-star"></span>
+                            <span class="op-star"></span>
+                            <span class="op-star"></span>
+                            <span class="op-star"></span>
+                            <span class="op-star"></span>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <p>
+                            "I had a great experience using this lawyer booking website. They made the process so easy
+                            and convenient. Highly recommended!? "
+                        </p>
+                    </div>
+                </div>
+                <div class="card" style="--delay: 2;">
+                    <div class="header2">
+                        <div class="profile">
+                            <div class="img">
+                                <img src="https://images.unsplash.com/photo-1511546395756-590dffdcdbd1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"
+                                    alt="" />
+                            </div>
+                            <div class="details">
+                                <h4>Jeffrey Gray</h4>
+                                <p>hopmurpo@ruwkas.pg</p>
+                            </div>
+                        </div>
+                        <div class="stars">
+                            <span class="op-star"></span>
+                            <span class="op-star"></span>
+                            <span class="op-star"></span>
+                            <span class="op-star"></span>
+                            <span class="op-star"></span>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <p>
+                            " Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tenetur
+                            rem cumque dicta consequatur quisquam tempore suscipit
+                            perspiciatis sit? "
+                        </p>
+                    </div>
+                </div>
+        </section>
+    </section>
+    <section class="curve4">
+        <img src="{% static 'images/curve.svg'%}" alt="free" class="curve" />
+    </section>
+    <section id="connect">
+        <section class="wrapper">
+            <div class="contant-box">
+                <div class="left">
+                    <div class="img-cont">
+                        <img src="{% static 'images/img2.png'%}" alt="Image" />
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="content">
+                        <h3>Instantly Connect with Lawyers for Your Legal Needs</h3>
+                        <p>Our lawyer booking service allows you to quickly and easily connect with experienced lawyers
+                            who can help you with your legal needs.</p>
+                        <div class="items">
+                            <div class="item">
+                                <h4>Efficient</h4>
+                                <p>Find the right lawyer for your case and schedule a consultation in minutes.</p>
+                            </div>
+                            <div class="item">
+                                <h4>Convenient</h4>
+                                <p>Easily manage your appointments and communicate with your lawyer through our
+                                    platform.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+    <section id="map" style="background-color: #F5F7F8;
+    padding-top: 40px;">
+        <section class="wrapper">
+            <div class="gmap" style="border-radius: 6px;">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d947244.6974157924!2d77.06604199528972!3d10.71914590386181!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1710515409607!5m2!1sen!2sin"
+                    width="1300px" height="300" style="border-radius: 10px;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </section>
+    </section>
+    <section id="banner">
+        <section class="wrapper">
+            <div class="content">
+                <h3>Connect the Creator</h3>
+                <a href="creator" class="button">Connect</a>
+            </div>
+        </section>
+    </section>
+
+    <footer class="footer">
+        <section class="wrapper">
+            <section class="top">
+                <div class="item">
+                    <h3>Jurist</h3>
+                    <ul>
+                        <li><a href="">Home</a></li>
+                        <li><a href="">Legal Reasearch </a></li>
+                        <li><a href="">Find Lawyer</a></li>
+                        <li><a href="">Find a law firm</a></li>
+                    </ul>
+                </div>
+                <div class="item">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="">Home</a></li>
+                        <li><a href="">About</a></li>
+                        <li><a href="">FAQ's</a></li>
+                        <li><a href="">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="item large">
+                    <h3>Connect with us</h3>
+                    <p>Sign up for Git articles and resources:</p>
+                    <form action="">
+                        <input type="email" placeholder="Email Address" />
+                        <input type="submit" value="Subscibe" />
+                    </form>
+                    <div class="social">
+                        <p>Connect with Jurist</p>
+                        <ul>
+                            <li><a href=""><img src="{% static 'images/facebook-badge.svg'%}" alt=""></a></li>
+                            <li><a href=""><img src="{% static 'images/twitter.svg'%}" alt=""></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </footer>
+    <!-- ---- card------ -->
+    <my-footer></my-footer>
+    <!-- ---- footer------ -->
+
+</body>
+<script src="{% static 'js/script.js'%}"></script>
+
+</html>

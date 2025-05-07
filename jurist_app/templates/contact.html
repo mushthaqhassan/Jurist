@@ -1,0 +1,140 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="{% static 'css/contact.css'%}" />
+    <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="wrapper">
+          <nav class="navbar">
+              <div class="logo">
+                  <a href="../index.html">
+                  <img src="{% static '../static/images/logo.png'%}" alt="Logo" />    
+                  </a>
+              </div>
+              <ul class="nav-menu">
+                  <li class="nav-item">
+                      <a href="/" class="nav-link">Home</a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="" class="nav-link">About</a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="booking" class="nav-link">Find Lawyer</a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="#" class="nav-link">Contact</a>
+                  </li>
+                  {% if user.is_authenticated %}
+                  <li class="nav-item">
+                      <a href="logout" class="a-submit">Logout</a>
+                  </li>
+                  <!-- <li>
+                          <div class="img-u" style="margin-left: 16px;">
+                              <img src="{% static 'images/userprofile.svg'%}" style="width: 37%;" alt="">
+                          </div>
+                      </li> -->
+                  {% else %}
+                  <li class="nav-item">
+                      <a href="login" class="a-submit">Login</a>
+                  </li>
+                  <li class="nav-item">
+                      <a href="signup" class="submit">Sign Up</a>
+                  </li>
+                  {% endif %}
+
+              </ul>
+              <div class="hamburger">
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+                  <span class="bar"></span>
+              </div>
+          </nav>
+      </div>
+</header>
+
+    <div class="container">
+      <span class="big-circle"></span>
+      <img src=" {% static 'img/shape.png'%} " class="square" alt="" />
+      <div class="form">
+        <div class="contact-info">
+          <h3 class="title">Let's get in touch</h3>
+          <p class="text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
+            dolorum adipisci recusandae praesentium dicta!
+          </p>
+
+          <div class="info">
+            <div class="information">
+              <img src="{% static 'img/location.png'%}" class="icon" alt="" />
+              <p>92 Cherry Drive Uniondale, NY 11553</p>
+            </div>
+            <div class="information">
+              <img src="{% static 'img/email.png'%}" class="icon" alt="" />
+              <p>lorem@ipsum.com</p>
+            </div>
+            <div class="information">
+              <img src="{% static 'img/phone.png'%}" class="icon" alt="" />
+              <p>123-456-789</p>
+            </div>
+          </div>
+
+          <div class="social-media">
+            <p>Connect with us :</p>
+            <div class="social-icons">
+              <a href="#">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="#">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="#">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="#">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <span class="circle one"></span>
+          <span class="circle two"></span>
+
+          <form action="#" autocomplete="off" method="post">
+            {% csrf_token %}
+            <h3 class="title">Contact us</h3>
+            <div class="input-container">
+              <input type="text" name="name" class="input" placeholder="Name" />
+              <!-- <label for="">Username</label> -->
+            </div>
+            <div class="input-container">
+              <input type="email" name="email" class="input"  placeholder="Email"/>
+              <!-- <label for="">Email</label> -->
+            </div>
+            <div class="input-container">
+              <input type="tel" name="phone" class="input" placeholder="Phone" />
+              <!-- <label for="">Phone</label> -->
+            </div>
+            <div class="input-container textarea">
+              <textarea name="message" class="input" placeholder="Message"></textarea>
+              <!-- <label for="">Message</label> -->
+            </div>
+            <input type="submit" value="Send" class="btn" />
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

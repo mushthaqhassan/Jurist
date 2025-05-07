@@ -1,0 +1,727 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lawyers</title>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"> -->
+    <link rel="stylesheet" href="{% static 'css/style-lawyer.css'%}" />
+    <link rel="stylesheet" href="{% static 'css/swiper-bundle.min.css'%}" />
+    <style>
+        #service div.bottom ul li h5 {
+            font-size: 16px;
+        }
+
+        .category-filter {
+            margin-top: 40px;
+        }
+
+        .title {
+            margin-bottom: 40px;
+        }
+
+        .title h1 {
+            color: #1b1919;
+            text-align: center;
+            font-weight: 800;
+            font-size: 36px;
+            letter-spacing: 1px;
+        }
+
+        .filter-btns {
+            text-align: center;
+            margin-bottom: 44px;
+        }
+
+        .filter-btn {
+            background: none;
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+            text-transform: uppercase;
+            display: inline-block;
+            margin: 10px 30px;
+            font-size: 16px;
+            color: #000;
+            font-weight: 600;
+            letter-spacing: 2px;
+            position: relative;
+            -webkit-transition: all 0.2s ease-in-out;
+            -o-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .filter-btn::after {
+            content: "";
+            position: absolute;
+            top: 110%;
+            left: 50%;
+            -webkit-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
+            height: 2px;
+            width: 0;
+            background-color: #555;
+            -webkit-transition: all 0.2s ease-in-out;
+            -o-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out
+        }
+
+        .filter-btn:hover {
+            color: #555;
+        }
+
+        .filter-btn:hover::after {
+            width: 100%;
+        }
+
+        /* .img-cont::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+} */
+        .img-cont img {
+            width: 100%;
+            display: block;
+            -webkit-transition: -webkit-transform 0.2s ease-in-out;
+            transition: -webkit-transform 0.2s ease-in-out;
+            -o-transition: transform 0.2s ease-in-out;
+            transition: transform 0.2s ease-in-out;
+            transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+        }
+
+        .filter-item:hover .img-cont img {
+            -webkit-transform: scale(1.1);
+            -ms-transform: scale(1.1);
+            transform: scale(1.1);
+        }
+
+        .item-info {
+            padding: 14px 0;
+        }
+
+        .item-info p {
+            font-weight: 600;
+            font-size: 17px;
+            margin-top: 8px;
+        }
+
+        .item-info .old-price {
+            font-size: 14px;
+            font-weight: 700;
+            text-decoration: line-through;
+        }
+
+        .item-info .new-price {
+            display: inline-block;
+            margin-left: 6px;
+            font-weight: 600;
+            color: #f53939;
+        }
+
+        .add-btn {
+            display: inline-block;
+            margin-top: 20px;
+            background-color: #95bf47;
+            text-decoration: none;
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 2px;
+            border: 2px solid #95bf47;
+            -webkit-transition: all 0.2s ease-in-out;
+            -o-transition: all 0.2s ease-in-out;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .add-btn:hover {
+            border-color: #95bf47;
+            background-color: #fff;
+            color: #95bf47;
+        }
+
+
+        .filter-items {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -webkit-box-pack: space-evenly;
+            -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+        }
+
+        .filter-item {
+            width: 100%;
+            margin-bottom: 40px;
+            -webkit-animation: fadeIn 2s;
+            animation: fadeIn 2s;
+        }
+
+        @-webkit-keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @media screen and (min-width: 768px) {
+            .filter-item {
+                width: calc(50% - 30px);
+            }
+        }
+
+        @media screen and (min-width: 992px) {
+            .filter-item {
+                width: calc(33.3333% - 30px);
+            }
+        }
+
+        @media screen and (min-width: 1200px) {
+            .filter-item {
+                width: calc(25% - 30px);
+            }
+        }
+
+        #service .category-filter .filter-items .filter-item {
+            width: 32%;
+            background-color: #fff;
+            margin-bottom: 26px;
+            padding: 24px;
+            border-radius: 17px;
+        }
+
+        #service .category-filter .filter-items .filter-item div.img-cont img {
+            border-radius: 10px;
+            margin-bottom: 19px;
+            display: block;
+            width: 100%;
+        }
+
+        #service .category-filter .filter-items .filter-item h3 {
+            font-size: 29px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        #service .category-filter .filter-items .filter-item h4 {
+            font-size: 22px;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        #service .category-filter .filter-items .filter-item p,
+        h5 {
+            font-size: 20px;
+        }
+
+        #service .category-filter .filter-items .filter-item a.button1 {
+            font-size: 15px;
+            color: #fff;
+            display: inline-block;
+            padding: 16px;
+            border-radius: 12px;
+            background-color: #47A992;
+            margin-top: 34px;
+            font-weight: 600;
+            margin-left: 82px;
+        }
+
+        #how-work .right .square1 {
+            left: 766px;
+        }
+
+        #how-work .right .square2 {
+            left: 766px;
+        }
+
+        #how-work .right .square3 {
+            left: 766px;
+        }
+
+        #how-work .right .square4 {
+            left: 766px;
+        }
+
+        #main .wrapper .left h1 {
+            font-size: 54px;
+            font-weight: 500;
+            width: 100%;
+            color: #212222;
+            margin-left: 25%;
+        }
+
+        #main .right .image {
+            width: 93%;
+        }
+
+        #main .right {
+            width: 39%;
+            padding-top: 0px;
+        }
+
+        #main .wrapper .left .underline {
+            width: 24%;
+            position: absolute;
+            top: 61%;
+            left: 22%;
+        }
+
+        #main .wrapper .left {
+            text-align: center;
+            width: 43%;
+            padding-top: 64px;
+        }
+
+        #main .wrapper .left .underline {
+            width: 24%;
+            position: absolute;
+            top: 36%;
+            left: 22%;
+        }
+
+        #main .wrapper .left p {
+            font-size: 18px;
+            width: 85%;
+            padding: 36px 0 36px 0;
+            color: #565a5aa3;
+            margin-left: 29%;
+        }
+    </style>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+</head>
+
+<body>
+    <!-- <header> -->
+    <header class="header">
+        <div class="wrapper">
+            <nav class="navbar">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="{% static 'images/logo.png'%}" alt="Logo" />
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Find Lawyer</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact" class="nav-link">Contact</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a href="logout" class="a-submit">Logout</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a href="login" class="a-submit">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="signup" class="submit">Sign Up</a>
+                    </li>
+                    {% endif %}
+
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- </header> -->
+
+    <!-- section main  -->
+    <section id="main">
+        <section class="wrapper">
+            <div class="left">
+                <h1>Find the perfect lawyer for your needs</h1>
+                <div class="underline" style="display: none;">
+                    <img src="{% static 'images/pngwing.com.png'%}" alt="underline" />
+                </div>
+                <p>
+                    Access top-notch legal expertise effortlessly through our online lawyer booking platform. Find and
+                    book skilled attorneys for your specific legal requirements with just a few clicks.</p>
+                <div class="middle">
+                    <div class="left">
+                        <form action="">
+                            <input type="email" placeholder="Enter your e-mail" />
+                        </form>
+                    </div>
+                    <div class="right">
+                        <a href="#" class="button">Get Started</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="right">
+                <div class="image" style="width: 100%;">
+                    <img src="{% static 'images/findlawyer.png'%}" alt="img" />
+                </div>
+            </div>
+        </section>
+    </section>
+    <!-- section main  -->
+
+    <!-- section how work  -->
+    <section id="how-work">
+        <section class="wrapper">
+            <div class="left">
+                <h2 style="margin-left: 48px;">Booking A Lawyer Made Easy And Convenient</h2>
+                <ul style="margin-left: 50px;">
+                    <li class="G"><a href="#" class="G-button">Get Started</a></li>
+                    <li class="L"><a href="#" class="L-button">Learn More</a></li>
+                </ul>
+                <div class="img-3">
+                    <img src="{% static 'images/highli.svg'%}" alt="image" />
+                </div>
+            </div>
+            <div class="right">
+                <div class="item">
+                    <h3 style="font-size: 26px;">Find Lawyer</h3>
+                    <p style="    color: #565a5aa3; font-size: 18px;">Browse through our extensive database of qualified lawyers and choose the one that suits your
+                        needs.</p>
+                </div>
+                <!-- <div class="square1"><img src="{% static 'images/3dsquare.png'%}" alt="3d" /></div> -->
+                <hr class="one">
+                <!-- <div class="square2"><img src="{% static 'images/3dsquare.png'%}" alt="3d" /></div> -->
+                <div class="item">
+                    <h3 style="font-size: 26px;">Book Online</h3>
+                    <p style="color: #565a5aa3; font-size: 18px;">Schedule a consultation or appoinment with your chosen lawyer directly through our website .</p>
+                </div>
+                <hr class="two">
+                <!-- <div class="square3"><img src="{% static 'images/3dsquare.png'%}" alt="3d" /></div> -->
+                <div class="item">
+                    <h3 style="font-size: 26px;">Get Legal Advise</h3>
+                    <p style="    color: #565a5aa3; font-size: 18px;">Discuss your legal concerns and get proffessional advice from experienced lawters.</p>
+                </div>
+                <!-- <div class="square4"><img src="{% static 'images/3dsquare.png'%}" alt="3d" /></div> -->
+                <hr class="three">
+                <div class="item">
+                    <h3 style="font-size: 26px;">Resolve Your Case</h3>
+                    <p style="    color: #565a5aa3; font-size: 18px;">Work with your lawyer to navigate the legal process and achive a favorable outcome.</p>
+                </div>
+            </div>
+        </section>
+    </section>
+    </div>
+
+
+    <section id="service">
+        <section class="wrapper">
+            <div class="category-filter">
+                <div class="title">
+                    <h1>Our Lawyers</h1>
+                </div>
+                <div class="filter-btns">
+                    <button type="button" class="filter-btn" id="all">All</button>
+                    <button type="button" class="filter-btn" id="finance-law">Finance Law</button>
+                    <button type="button" class="filter-btn" id="divorce-law">Divorce Law</button>
+                    <button type="button" class="filter-btn" id="criminal-law">Criminal Law</button>
+                    <button type="button" class="filter-btn" id="family-law">Family Law</button>
+                    <button type="button" class="filter-btn" id="real-estate-law">Real-Estate Law</button>
+                </div>
+                <div class="filter-items">
+                    <div class="filter-item all finance-law">
+                        <div class="img-cont">
+                            <img src="{% static 'images/men3.jpg'%}" alt="Family">
+                        </div>
+                        <h3>John Mathew</h3>
+                        <h4>finance law</h4>
+                        <p>Location : Malappuram , Kerala</p>
+                        <p>Rating : 4.7/5</p>
+                        <p>Cases Won: 78 | Cases Lost: 12</p>
+                        <h5>Experience : 15 years</h5>
+                        <a href="appointment" class="button1">Book Appoinment</a>
+                    </div>
+
+                    <div class="filter-item all finance law">
+                        <div class="img-cont">
+                            <img src="{% static 'images/women3.jpg'%}" alt="Family">
+                        </div>
+                        <h3>Deepa Pillai</h3>
+                        <h4>finance law</h4>
+                        <p>Location : Kannur, Kerala</p>
+                        <p>Rating : 4.5/5</p>
+                        <p>Cases Won: 60 | Cases Lost: 12</p>
+                        <h5>Experience : 15 years</h5>
+                        <a href="appointment" class="button1">Book Appoinment</a>
+
+                    </div>
+
+                    <div class="filter-item all divorce-law">
+                        <div class="img-cont">
+                            <img src="{% static 'images/men4.jpg'%}" alt="Family">
+                        </div>
+                        <h3>Arjun Menon</h3>
+                        <h4>Divorce law</h4>
+                        <p>Location : Thrissur, Kerala</p>
+                        <p>Rating : 4.7/5</p>
+                        <p>Cases Won: 110 | Cases Lost: 10</p>
+                        <h5>Experience : 20 years</h5>
+                        <a href="appointment" class="button1">Book Appoinment</a>
+                    </div>
+
+                    <div class="filter-item all criminal-law">
+                        <div class="img-cont">
+                            <img src="{% static 'images/women2.jpg'%}" alt="Family">
+                        </div>
+                        <h3>Maya Krishnan</h3>
+                        <h4>Criminal law</h4>
+                        <p>Location : Malappuram , Kerala</p>
+                        <p>Rating : 4.6/5</p>
+                        <p>Cases Won: 75 | Cases Lost: 8</p>
+                        <h5>Experience : 10 years</h5>
+                        <a href="appointment" class="button1">Book Appoinment</a>
+                    </div>
+
+                    <div class="filter-item all family-law">
+                        <div class="img-cont">
+                            <img src="{% static 'images/men1.jpg'%}" alt="Family">
+                        </div>
+                        <h3>Sanjay Menon</h3>
+                        <h4>Family law</h4>
+                        <p>Location : Alappuzha, Kerala</p>
+                        <p>Rating : 4.8/5</p>
+                        <p>Cases Won: 92 | Cases Lost: 13</p>
+                        <h5>Experience : 18 years</h5>
+                        <a href="appointment" class="button1">Book Appoinment</a>
+
+                    </div>
+
+                    <div class="filter-item all real-estate-law">
+                        <div class="img-cont">
+                            <img src="{% static 'images/women1.jpg'%}" alt="Family">
+                        </div>
+                        <h3>Aishwarya Nair</h3>
+                        <h4>Real-Estate </h4>
+                        <p>Location : Palakkad, Kerala</p>
+                        <p>Rating : 4.9/5</p>
+                        <p>Cases Won: 80 | Cases Lost: 7</p>
+                        <h5>Experience : 14 years</h5>
+                        <a href="appointment" class="button1">Book Appoinment</a>
+
+                    </div>
+
+                    <div class="filter-item all finance-law">
+                        <div class="img-cont">
+                            <img src="{% static 'images/men2.jpg'%}" alt="Family">
+                        </div>
+                        <h3>Vikram Kumar</h3>
+                        <h4>Finance law</h4>
+                        <p>Location : Kollam, Kerala</p>
+                        <p>Rating : 4.6/5</p>
+                        <p>Cases Won: 70 | Cases Lost: 10</p>
+                        <h5>Experience : 12 years</h5>
+                        <a href="appointment" class="button1">Book Appoinment</a>
+
+                    </div>
+
+                    <div class="filter-item all divorce-law">
+                        <div class="img-cont">
+                            <img src="{% static 'images/women4.jpg'%}" alt="Family">
+                        </div>
+                        <h3>Sneha Menon</h3>
+                        <h4>Divorce law</h4>
+                        <p>Location : Kannur, Kerala</p>
+                        <p>Rating : 3.8/5</p>
+                        <p>Cases Won: 55 | Cases Lost: 10</p>
+                        <h5>Experience : 9 years</h5>
+                        <a href="appointment" class="button1">Book Appoinment</a>
+
+                    </div>
+
+                    <div class="filter-item all criminal-law">
+                        <div class="img-cont">
+                            <img src="{% static 'images/men5.jpg'%}" alt="Family">
+                        </div>
+                        <h3>Rohan Nair</h3>
+                        <h4>Criminal law</h4>
+                        <p>Location : Thrissur, Kerala</p>
+                        <p>Rating : 4.8/5</p>
+                        <p>Cases Won: 105 | Cases Lost: 12</p>
+                        <h5>Experience : 19 years</h5>
+                        <a href="appointment" class="button1">Book Appoinment</a>
+
+                    </div>
+
+                    <div class="filter-item all family-law">
+                        <div class="img-cont">
+                            <img src="{% static 'images/women2.jpg'%}" alt="Family">
+                        </div>
+                        <h3> Meera Kumar</h3>
+                        <h4>Family law</h4>
+                        <p>Location : Kollam, Kerala</p>
+                        <p>Rating : 4.6/5</p>
+                        <p>Cases Won: 70 | Cases Lost: 9</p>
+                        <h5>Experience : 11 years</h5>
+                        <a href="appointment" class="button1">Book Appoinment</a>
+
+                    </div>
+
+                    <div class="filter-item all real-estate-law">
+                        <div class="img-cont">
+                            <img src="{% static 'images/women4.jpg'%}" alt="Family">
+                        </div>
+                        <h3>Shruti Menon</h3>
+                        <h4>Real-Estate law</h4>
+                        <p>Location : Idukki, Kerala</p>
+                        <p>Rating : 3.9/5</p>
+                        <p>Cases Won: 55 | Cases Lost: 10</p>
+                        <h5>Experience : 9 years</h5>
+                        <a href="appointment" class="button1">Book Appoinment</a>
+
+                    </div>
+
+                    <div class="filter-item all finance-law">
+                        <div class="img-cont">
+                            <img src="{% static 'images/women5.jpg'%}" alt="Family">
+                        </div>
+                        <h3>Deepa Pillai</h3>
+                        <h4>finance law</h4>
+                        <p>Location : Kannur, Kerala</p>
+                        <p>Rating : 3.5/5</p>
+                        <p>Cases Won: 60 | Cases Lost: 12</p>
+                        <h5>Experience : 8 years</h5>
+                        <a href="appointment" class="button1">Book Appoinment</a>
+                    </div>
+                </div>
+
+
+                <div class="bottom" style="display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;">
+                    {% for l in lawyers %}
+                    <div class="filter-item all" style="  width: 32%;
+                    background-color: #fff;
+                    margin-bottom: 26px;
+                    padding: 24px;
+                    border-radius: 17px;">
+                        <div class="img-cont">
+                            <img src="{{l.law_image.url}}" alt="Family" style="    width: 100%;
+                            border-radius: 10px;
+                            margin-bottom: 19px;
+                            display: block;">
+                        </div>
+                        <h3 style="    font-size: 29px;
+                        font-weight: 600;
+                        text-align: center;
+                        margin-bottom: 10px;">{{l.law_name}}</h3>
+                        <h4 style="    font-size: 22px;
+                        font-weight: 600;
+                        text-align: center;
+                        margin-bottom: 10px;">{{l.dep_name}}</h4>
+                        <p style="font-size: 20px;">Location : {{l.law_location}}</p>
+                        <p style="font-size: 20px;">Rating : {{l.law_rating}}</p>
+                        <p style="font-size: 20px;">Cases Won: {{l.case_won}} | Cases Lost: {{l.case_lose}}</p>
+                        <h5>Experience : {{l.law_exp}} years</h5>
+                        <a href="appointment" class="button1" style="  font-size: 15px;
+                        color: #fff;
+                        display: inline-block;
+                        padding: 16px;
+                        border-radius: 12px;
+                        background-color: #47A992;
+                        margin-top: 34px;
+                        font-weight: 600;
+                        margin-left: 82px;">Book Appoinment</a>
+
+                    </div>
+
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- section service  -->
+
+    <!-- footer -->
+    <section id="banner">
+        <section class="wrapper">
+            <div class="content">
+                <h3>Consult A Best Lawyer</h3>
+                <a href="#" class="button">Talk to a Lawyer</a>
+            </div>
+        </section>
+    </section>
+    <footer class="footer">
+        <section class="wrapper">
+            <section class="top">
+                <div class="item">
+                    <h3>Jurist</h3>
+                    <ul>
+                        <li><a href="">Home</a></li>
+                        <li><a href="">Legal Reasearch </a></li>
+                        <li><a href="">Find Lawyer</a></li>
+                        <li><a href="">Find a law firm</a></li>
+                    </ul>
+                </div>
+                <div class="item">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="">Home</a></li>
+                        <li><a href="">About</a></li>
+                        <li><a href="">FAQ's</a></li>
+                        <li><a href="">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="item large">
+                    <h3>Connect with us</h3>
+                    <p>Sign up for Git articles and resources:</p>
+                    <form action="">
+                        <input type="email" placeholder="Email Address" />
+                        <input type="submit" value="Subscibe" />
+                    </form>
+                    <div class="social">
+                        <p>Connect with Jurist</p>
+                        <ul>
+                            <li><a href=""><img src="{% static 'images/facebook-badge.svg'%}" alt=""></a></li>
+                            <li><a href=""><img src="{% static 'images/twitter.svg'%}" alt=""></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </footer>
+    <!-- footer -->
+
+
+
+
+</body>
+<script src="{% static 'swiper-bundle.min.js'%}"></script>
+<script src="{% static 'js/script-lawyer.js'%}"></script>
+<!-- <script src="../script.js"></script> -->
+
+</html>

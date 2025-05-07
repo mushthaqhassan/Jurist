@@ -1,0 +1,214 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+:root {
+    --color-primary: #00809B;
+    --color-white: #FFFFFF;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    background: linear-gradient(to bottom, #2BC0E4, #EAECC6);
+    font-family: 'Poppins', Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+body::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -36.5%;
+    right: -22.54%;
+    width: 49.22vw;
+    height: 74.40vh;
+    border-radius: 100%;
+    background-color: rgba(111, 198, 185, 0.84);
+    filter: blur(75px);
+}
+
+body::after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: -25%;
+    left: -10.3%;
+    width: 45.3125vw;
+    height: 67.55vh;
+    border-radius: 100%;
+    background-color: rgba(10, 164, 193, 0.87);
+    filter: blur(75px);
+}
+
+.card {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    width: 680px;
+    max-width: 100%;
+    min-height: 388px;
+    padding: 40px;
+    color: var(--color-primary);
+}
+
+.card::before {
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: 10;
+    inset: 0;
+    border-radius: 32px;
+    background: radial-gradient(88.05% 224.09% at 5.65% 12.11%, rgba(255, 255, 255, 0.42) 0%, rgba(255, 255, 255, 0.06) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+}
+
+.header {
+    position: relative;
+    z-index: 20;
+    display: flex;
+    gap: 40px;
+}
+
+.profile {
+    width: 311px;
+    aspect-ratio: 1;
+    margin-left: auto;
+    border: solid var(--color-white) 1px;
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+.profile img {
+    width: 102%;
+    height: 108%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.main-title {
+    padding-bottom: 9px;
+    font-weight: 600;
+    font-size: 40px;
+    text-shadow: 0px 4px 8px rgba(255, 255, 255, 0.25);
+}
+
+.subtitle {
+    padding-bottom: 21px;
+    font-size: 28px;
+    font-weight: 600;
+    text-shadow: 0px 4px 8px rgba(255, 255, 255, 0.25);
+}
+
+.subtitle-regular {
+    font-weight: 400;
+}
+
+.link-resume {
+    position: relative;
+    display: inline-block;
+    padding-left: 24px;
+    color: var(--color-primary);
+    text-shadow: 0px 4px 8px rgba(255, 255, 255, 0.25);
+}
+
+.link-resume:hover {
+    text-decoration: none;
+}
+
+.link-resume::before {
+    content: '\f0c1';
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+}
+
+.social {
+    position: relative;
+    z-index: 20;
+    margin-top: auto;
+}
+
+.social .title {
+    padding-bottom: 12px;
+}
+
+.social .list {
+    display: flex;
+    gap: 12px;
+}
+
+.social .link {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 40px;
+    background-color: var(--color-white);
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+.social .link:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.social .link::before {
+    margin-right: 5px;
+    font-family: 'Font Awesome 6 Brands';
+    font-weight: 400;
+}
+
+.social .link.twitter::before {
+    content: '\e61b';
+}
+
+.social .link.linkedin::before {
+    content: '\f08c';
+}
+
+.social .link.github::before {
+    content: '\f09b';
+}
+
+.bubbles {
+    position: absolute;
+    inset: 0;
+}
+
+.bubble {
+    position: absolute;
+    aspect-ratio: 1;
+    border-radius: 100%;
+    background: linear-gradient(151.96deg, #A6DCD0 17.82%, #45C0BA 89.66%);
+}
+
+.bubble:nth-child(1) {
+    top: -40px;
+    left: 40.23%;
+    width: 82px;
+}
+
+.bubble:nth-child(2) {
+    top: -74px;
+    right: -73px;
+    width: 160px;
+}
+
+.bubble:nth-child(3) {
+    bottom: 24px;
+    left: -165px;
+    width: 208px;
+}
+
+.bubble:nth-child(4) {
+    z-index: 20;
+    right: -68px;
+    bottom: 31px;
+    width: 135px;
+}

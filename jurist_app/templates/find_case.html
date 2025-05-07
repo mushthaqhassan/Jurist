@@ -1,0 +1,286 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/findcase.css'%}" type="text/css" />
+</head>
+<body>
+    <header class="header">
+        <div class="wrapper">
+
+            <nav class="navbar">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="{% static 'images/logo.png'%}" alt="Logo" />
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="Findcase" class="nav-link">Find the Case</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact" class="nav-link">Contact</a>
+                    </li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a href="logout" class="a-submit">Logout</a>
+                    </li>
+                    <!-- <li>
+                            <div class="img-u" style="margin-left: 16px;">
+                                <img src="{% static 'images/userprofile.svg'%}" style="width: 37%;" alt="">
+                            </div>
+                        </li> -->
+                    {% else %}
+                    <li class="nav-item">
+                        <a href="login" class="a-submit">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="signup" class="submit">Sign Up</a>
+                    </li>
+                    {% endif %}
+
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section id="service">
+        <section class="wrapper">
+            <div class="category-filter">
+                <div class="title">
+                    <h1>Our Lawyers</h1>
+                </div>
+                <div class="filter-btns">
+                    <button type="button" class="filter-btn" id="all">All</button>
+                    <button type="button" class="filter-btn" id="finance-law">Finance Law</button>
+                    <button type="button" class="filter-btn" id="divorce-law">Divorce Law</button>
+                    <button type="button" class="filter-btn" id="criminal-law">Criminal Law</button>
+                    <button type="button" class="filter-btn" id="family-law">Family Law</button>
+                    <button type="button" class="filter-btn" id="real-estate-law">Real-Estate Law</button>
+                </div>
+                <div class="filter-items">
+                    <div class="filter-item all finance-law">
+                        <div class="img-cont">
+                            <img src="{% static 'images/men3.jpg'%}" alt="Family">
+                        </div>
+                        <h3>John Mathew</h3>
+                        <h4>finance law</h4>
+                        <p>Location : Malappuram , Kerala</p>
+                        <p>Rating : 4.7/5</p>
+                        <p>Cases Won: 78 | Cases Lost: 12</p>
+                        <h5>Experience : 15 years</h5>
+                        <a href="appointment" class="button1">Book Appoinment</a>
+                    </div>
+
+                    <div class="filter-item all finance law">
+                        <div class="img-cont">
+                            <img src="{% static 'images/women3.jpg'%}" alt="Family">
+                        </div>
+                        <h3>Deepa Pillai</h3>
+                        <h4>finance law</h4>
+                        <p>Location : Kannur, Kerala</p>
+                        <p>Rating :  4.5/5</p>
+                        <p>Cases Won: 60 | Cases Lost: 12</p>
+                        <h5>Experience : 15 years</h5>
+                        <a href="appointment" class="button1">Book Appoinment</a>
+
+                    </div>
+
+                    <div class="filter-item all divorce-law">
+                        <div class="img-cont">
+                            <img src="{% static 'images/men4.jpg'%}" alt="Family">
+                        </div>
+                        <h3>Arjun Menon</h3>
+                        <h4>Divorce law</h4>
+                        <p>Location : Thrissur, Kerala</p>
+                        <p>Rating : 4.7/5</p>
+                        <p>Cases Won: 110 | Cases Lost: 10</p>
+                        <h5>Experience : 20 years</h5>
+                        <a href="appointment" class="button1">Book Appoinment</a>
+                    </div>
+
+                    <div class="filter-item all criminal-law">
+                        <div class="img-cont">
+                            <img src="{% static 'images/women2.jpg'%}" alt="Family">
+                        </div>
+                        <h3>Maya Krishnan</h3>
+                        <h4>Criminal law</h4>
+                        <p>Location : Malappuram , Kerala</p>
+                        <p>Rating : 4.6/5</p>
+                        <p>Cases Won: 75 | Cases Lost: 8</p>
+                        <h5>Experience : 10 years</h5>
+                        <a href="appointment" class="button1">Book Appoinment</a>
+                    </div>
+
+                    <div class="filter-item all family-law">
+                        <div class="img-cont">
+                            <img src="{% static 'images/men1.jpg'%}" alt="Family">
+                        </div>
+                        <h3>Sanjay Menon</h3>
+                        <h4>Family law</h4>
+                        <p>Location : Alappuzha, Kerala</p>
+                        <p>Rating : 4.8/5</p>
+                        <p>Cases Won: 92 | Cases Lost: 13</p>
+                        <h5>Experience : 18 years</h5>
+                        <a href="appointment" class="button1">Book Appoinment</a>
+
+                    </div>
+
+                    <div class="filter-item all real-estate-law">
+                        <div class="img-cont">
+                            <img src="{% static 'images/women1.jpg'%}" alt="Family">
+                        </div>
+                        <h3>Aishwarya Nair</h3>
+                        <h4>Real-Estate </h4>
+                        <p>Location : Palakkad, Kerala</p>
+                        <p>Rating : 4.9/5</p>
+                        <p>Cases Won: 80 | Cases Lost: 7</p>
+                        <h5>Experience : 14 years</h5>
+                        <a href="appointment" class="button1">Book Appoinment</a>
+
+                    </div>
+
+                    <div class="filter-item all finance-law">
+                        <div class="img-cont">
+                            <img src="{% static 'images/men2.jpg'%}" alt="Family">
+                        </div>
+                        <h3>Vikram Kumar</h3>
+                        <h4>Finance law</h4>
+                        <p>Location : Kollam, Kerala</p>
+                        <p>Rating : 4.6/5</p>
+                        <p>Cases Won: 70 | Cases Lost: 10</p>
+                        <h5>Experience : 12 years</h5>
+                        <a href="appointment" class="button1">Book Appoinment</a>
+
+                    </div>
+
+                    <div class="filter-item all divorce-law">
+                        <div class="img-cont">
+                            <img src="{% static 'images/women4.jpg'%}" alt="Family">
+                        </div>
+                        <h3>Sneha Menon</h3>
+                        <h4>Divorce law</h4>
+                        <p>Location : Kannur, Kerala</p>
+                        <p>Rating : 3.8/5</p>
+                        <p>Cases Won: 55 | Cases Lost: 10</p>
+                        <h5>Experience : 9 years</h5>
+                        <a href="appointment" class="button1">Book Appoinment</a>
+
+                    </div>
+
+                    <div class="filter-item all criminal-law">
+                        <div class="img-cont">
+                            <img src="{% static 'images/men5.jpg'%}" alt="Family">
+                        </div>
+                        <h3>Rohan Nair</h3>
+                        <h4>Criminal law</h4>
+                        <p>Location : Thrissur, Kerala</p>
+                        <p>Rating : 4.8/5</p>
+                        <p>Cases Won: 105 | Cases Lost: 12</p>
+                        <h5>Experience : 19 years</h5>
+                        <a href="appointment" class="button1">Book Appoinment</a>
+
+                    </div>
+
+                    <div class="filter-item all family-law">
+                        <div class="img-cont">
+                            <img src="{% static 'images/women2.jpg'%}" alt="Family">
+                        </div>
+                        <h3> Meera Kumar</h3>
+                        <h4>Family law</h4>
+                        <p>Location :  Kollam, Kerala</p>
+                        <p>Rating : 4.6/5</p>
+                        <p>Cases Won: 70 | Cases Lost: 9</p>
+                        <h5>Experience : 11 years</h5>
+                        <a href="appointment" class="button1">Book Appoinment</a>
+
+                    </div>
+
+                    <div class="filter-item all real-estate-law">
+                        <div class="img-cont">
+                            <img src="{% static 'images/women4.jpg'%}" alt="Family">
+                        </div>
+                        <h3>Shruti Menon</h3>
+                        <h4>Real-Estate law</h4>
+                        <p>Location : Idukki, Kerala</p>
+                        <p>Rating : 3.9/5</p>
+                        <p>Cases Won: 55 | Cases Lost: 10</p>
+                        <h5>Experience : 9 years</h5>
+                        <a href="appointment" class="button1">Book Appoinment</a>
+
+                    </div>
+
+                    <div class="filter-item all finance-law">
+                        <div class="img-cont">
+                            <img src="{% static 'images/women5.jpg'%}" alt="Family">
+                        </div>
+                        <h3>Deepa Pillai</h3>
+                        <h4>finance law</h4>
+                        <p>Location : Kannur, Kerala</p>
+                        <p>Rating : 3.5/5</p>
+                        <p>Cases Won: 60 | Cases Lost: 12</p>
+                        <h5>Experience : 8 years</h5>
+                        <a href="appointment" class="button1">Book Appoinment</a>
+                    </div>
+                </div>
+
+
+                <div class="bottom" style="display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;">
+                    {% for l in lawyers %}
+                    <div class="filter-item all" style="  width: 32%;
+                    background-color: #fff;
+                    margin-bottom: 26px;
+                    padding: 24px;
+                    border-radius: 17px;">
+                        <div class="img-cont">
+                            <img src="{{l.law_image.url}}" alt="Family" style="    width: 100%;
+                            border-radius: 10px;
+                            margin-bottom: 19px;
+                            display: block;">
+                        </div>
+                        <h3 style="    font-size: 29px;
+                        font-weight: 600;
+                        text-align: center;
+                        margin-bottom: 10px;">{{l.law_name}}</h3>
+                        <h4 style="    font-size: 17px;
+                        font-weight: 500;
+                        text-align: center;
+                        margin-bottom: 10px;">{{l.dep_name}}</h4>
+                        <p>Education of {{l.law_name}}. {{l.law_edu}}</p>
+                        <h5>Experience : {{l.law_exp}} years</h5>
+                        <a href="appointment" class="button1" style="  font-size: 15px;
+                        color: #fff;
+                        display: inline-block;
+                        padding: 16px;
+                        border-radius: 12px;
+                        background-color: #47A992;
+                        margin-top: 34px;
+                        font-weight: 600;
+                        margin-left: 82px;">Book Appoinment</a>
+
+                    </div>
+
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    </section>
+</body>
+<script src="{% static 'js/findcase.js'%}"></script>
+</html>
